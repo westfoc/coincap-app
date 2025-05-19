@@ -27,3 +27,51 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+## Sr. Frontend Developer Technical Assignment
+
+### Assignment Overview
+
+Please build a responsive, server-rendered front-end web application using the CoinCap API (https://docs.coincap.io/).
+
+The goal is to demonstrate your ability to consume a public API, implement Server-Side Rendering (SSR), manage state effectively, and handle simulated real-time data using Server-Sent Events (SSE).
+
+## Requirements
+
+### Technology Stack
+
+- [x] Framework: Next.js (with TypeScript)
+- [x] Styling: TailwindCSS
+- [x] State Management: Redux
+- [x] Server-side Rendering
+- [x] Public API Integration – use CoinCap API
+
+### Minimum Features
+
+- [x] Home Page that displays the top 20 cryptocurrencies by market cap.
+- [x] Coin Detail Page (/coin/[id]) that shows real-time price updates and metadata.
+- [x] A real-time price ticker or chart that updates every few seconds.
+- [ ] You may simulate SSE using a custom API route or setInterval().
+
+## Responsive Design
+
+- [ ] The application must be usable and visually coherent on both desktop and mobile devices.
+- [ ] Deployment
+- [ ] The application must be deployed and publicly accessible.
+
+## Bonus (Optional) Features
+
+- [ ] Filtering or sorting by price, volume, or change %
+- [ ] Dark mode toggle with persisted preference
+- [ ] Unit tests for at least one component using Jest or React Testing Library
+
+## Submission Guidelines
+
+### Please submit the following:
+
+- [ ] Link to the GitHub repository (public)
+- [ ] Link to the deployed application
+- [ ] A README file containing:
+- [ ] Setup instructions
+- [ ] Explanation of your architecture/approach
+- [ ] Any assumptions or trade-offs made

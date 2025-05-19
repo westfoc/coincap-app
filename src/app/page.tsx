@@ -1,36 +1,66 @@
-import Link from "next/link";
+"use client";
+import { env } from "../env";
+import { useEffect, useState, useRef } from "react";
+import Table from "./_components/table";
+// import { useSSEWithReconnect } from "./hooks/useSSEWithReconnect";
+interface Asset {
+  changePercent24Hr: string;
+  explorer: string;
+  id: string;
+  marketCapUsd: string;
+  maxSupply: string;
+  name: string;
+  priceUsd: string;
+  rank: string;
+  supply: string;
+  symbol: string;
+  volumeUsd24Hr: string;
+  vwap24Hr: string;
+}
+
+interface AssetResponse {
+  data: Readonly<Asset[]>;
+  timestamp: number;
+}
 
 export default function HomePage() {
+  const [data, setData] = useState<Asset[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    async function fetchAssets() {
+      try {
+        const response = await fetch(`https://rest.coincap.io/v3/assets`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "accept: application/json",
+            Authorization: `Bearer ${env.NEXT_PUBLIC_APIKEY}`,
+          },
+        });
+        const assets = (await response.json()) as AssetResponse;
+        const assetsData = assets.data.slice(0, 20);
+
+        setData(assetsData);
+        setIsLoading(false);
+      } catch (e) {
+        console.error("Error fetching data:", e);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchAssets().catch((e) => console.error(e));
+    intervalRef.current = setInterval(() => void fetchAssets(), 5000);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-white text-black">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
+        <Table data={data} />
       </div>
     </main>
   );
