@@ -67,13 +67,13 @@ export default async function Page({
               {data.name} {data.symbol}
             </h1>
           </div>
-          <div className="text-right">
+          <div className="flex flex-wrap text-right align-bottom">
             <h3 className="text-[40px] leading-10 font-normal">
               {formatUSDCurrency(parseInt(data.priceUsd))}
-              <span className="text-2xl">
-                (${Number(data.changePercent24Hr).toFixed(2)}%)
-              </span>
             </h3>
+            <p className="text-2xl">
+              (${Number(data.changePercent24Hr).toFixed(2)}%)
+            </p>
           </div>
         </div>
       </div>
@@ -100,8 +100,10 @@ export default async function Page({
           <div></div>
         </div>
       </div>
-      <div>
-        <Chart id={id} />
+      <div className="flex w-full flex-row justify-center">
+        <div className="p4 flex w-3/5 flex-row flex-wrap items-stretch border-r border-b border-l border-gray-200">
+          <Chart id={id} />
+        </div>
       </div>
     </div>
   );

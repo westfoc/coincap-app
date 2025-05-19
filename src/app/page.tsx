@@ -30,6 +30,7 @@ export default function HomePage() {
 
   useEffect(() => {
     async function fetchAssets() {
+      setIsLoading(true);
       try {
         const response = await fetch(`https://rest.coincap.io/v3/assets`, {
           method: "GET",
@@ -60,7 +61,7 @@ export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-white text-black">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <Table data={data} />
+        {isLoading ? "Loading..." : <Table data={data} />}
       </div>
     </main>
   );
