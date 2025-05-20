@@ -15,19 +15,6 @@ If you are not familiar with the different technologies used in this project, pl
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
-
 ## Sr. Frontend Developer Technical Assignment
 
 ### Assignment Overview
@@ -51,13 +38,13 @@ The goal is to demonstrate your ability to consume a public API, implement Serve
 - [x] Home Page that displays the top 20 cryptocurrencies by market cap.
 - [x] Coin Detail Page (/coin/[id]) that shows real-time price updates and metadata.
 - [x] A real-time price ticker or chart that updates every few seconds.
-- [ ] You may simulate SSE using a custom API route or setInterval().
+- [x] You may simulate SSE using a custom API route or setInterval().
 
 ## Responsive Design
 
-- [ ] The application must be usable and visually coherent on both desktop and mobile devices.
-- [ ] Deployment
-- [ ] The application must be deployed and publicly accessible.
+- [x] The application must be usable and visually coherent on both desktop and mobile devices.
+- [x] Deployment
+- [x] The application must be deployed and publicly accessible.
 
 ## Bonus (Optional) Features
 
