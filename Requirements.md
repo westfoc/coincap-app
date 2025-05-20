@@ -43,5 +43,5 @@ The goal is to demonstrate your ability to consume a public API, implement Serve
 - [x] Link to the deployed application
 - [x] A README file containing:
 - [x] Setup instructions
-- [ ] Explanation of your architecture/approach
-- [ ] Any assumptions or trade-offs made
+- [x] Explanation of your architecture/approach
+- [x] Any assumptions or trade-offs made
