@@ -50,7 +50,7 @@ export default function RealTimeAssetUpdater({
       setData(dataParsed);
     }
 
-    intervalRef.current = setInterval(() => void fetchLatestData, 5000);
+    intervalRef.current = setInterval(() => void fetchLatestData(), 10000);
 
     return () => {
       if (intervalRef.current) {
