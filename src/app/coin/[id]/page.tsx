@@ -100,8 +100,8 @@ export default async function Page({
           <div></div>
         </div>
       </div>
-      <div className="flex w-full flex-row justify-center">
-        <div className="p4 flex w-3/5 flex-row flex-wrap items-stretch border-r border-b border-l border-gray-200">
+      <div className="mb-10 flex w-full flex-row justify-center">
+        <div className="flex w-3/5 flex-row flex-wrap items-stretch border-r border-b border-l border-gray-200 pt-4 pr-4 pb-4 pl-4">
           <Chart id={id} />
         </div>
       </div>
