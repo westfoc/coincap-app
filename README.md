@@ -19,7 +19,9 @@ This app is built using the following technologies:
 
 ### Installation Steps
 
-You'll need to add secrets to an .env to use the db and for Clerk Auth. Let me know your email and I can share these secrets via the Vercel and Clerk apps.
+You'll need to add secrets to an .env to use CoinCap API. You'll have create an account https://coincap.io/ to receive an API key to add to the .env file.
+
+See the .env.example file for naming conventions.
 
 Open your terminal and run:
 
