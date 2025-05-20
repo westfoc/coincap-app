@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { env } from "../../env";
 import Chart from "./chart";
 import type { IndividualAsset, Asset } from "../../types";
@@ -32,6 +32,7 @@ export default function RealTimeAssetUpdater({
   initialData,
   assetId,
 }: RealTimeAssetUpdaterProps) {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [data, setData] = useState(initialData);
 
   useEffect(() => {
@@ -49,14 +50,14 @@ export default function RealTimeAssetUpdater({
       setData(dataParsed);
     }
 
-    const intervalId = setInterval(() => {
-      fetchLatestData().catch((e) => console.error(e));
-    }, 10000);
+    intervalRef.current = setInterval(() => void fetchLatestData, 5000);
 
-    return () => clearInterval(intervalId);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, [assetId]);
-
-  if (!data) return null;
 
   return (
     <div className="flex w-full flex-col">
