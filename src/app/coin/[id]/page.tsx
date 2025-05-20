@@ -1,23 +1,6 @@
 import { env } from "../../../env";
 import Chart from "./../../_components/chart";
-
-interface Asset {
-  timestamp: number;
-  data: {
-    id: string;
-    rank: string;
-    symbol: string;
-    name: string;
-    supply: string;
-    maxSupply: string;
-    marketCapUsd: string;
-    volumeUsd24Hr: string;
-    priceUsd: string;
-    changePercent24Hr: string;
-    vwap24Hr: string;
-    explorer: string;
-  };
-}
+import type { IndividualAsset } from "../../../types";
 
 function formatUSDCurrency(num: bigint | number, isCompact = false) {
   return new Intl.NumberFormat("en-US", {
@@ -43,7 +26,7 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  async function fetchAsset(): Promise<Asset> {
+  async function fetchAsset(): Promise<IndividualAsset> {
     const resp = await fetch(`https://rest.coincap.io/v3/assets/${id}`, {
       method: "GET",
       headers: {
@@ -51,7 +34,7 @@ export default async function Page({
         Authorization: `Bearer ${env.API_KEY}`,
       },
     });
-    const parsedResp = (await resp.json()) as Promise<Asset>;
+    const parsedResp = (await resp.json()) as Promise<IndividualAsset>;
     return parsedResp;
   }
 
