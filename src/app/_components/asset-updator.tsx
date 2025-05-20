@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { env } from "../../env"; // Adjust path as needed
+import { env } from "../../env";
 import Chart from "./chart";
 import type { IndividualAsset, Asset } from "../../types";
 

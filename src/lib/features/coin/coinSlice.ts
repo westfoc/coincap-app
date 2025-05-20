@@ -10,7 +10,7 @@ const initialState: CoinState = {
 };
 
 export const fetchCoins = createAsyncThunk(
-  "coins/fetchCoinData", // action type prefix
+  "coins/fetchCoinData",
   async (_, { rejectWithValue }) => {
     try {
       const response = await fetch(`https://rest.coincap.io/v3/assets`, {
@@ -49,5 +49,4 @@ export const coinSlice = createSlice({
   },
 });
 
-// export const { saveCoins } = coinSlice.actions;
 export default coinSlice.reducer;
