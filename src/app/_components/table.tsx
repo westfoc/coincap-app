@@ -41,8 +41,6 @@ function formatNumber(num: number) {
 export default function Table({ data }: TableProps) {
   const router = useRouter();
 
-  if (!data.length) return null;
-
   return (
     <div className="not-prose w-full overflow-auto rounded-lg outline outline-white/5 max-[600px]:w-4/5 max-[600px]:bg-white">
       <div className="mt-4 overflow-hidden">

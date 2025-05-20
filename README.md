@@ -1,64 +1,36 @@
-# Create T3 App
+# Coinapp Project
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Technologies
 
-## What's next? How do I make an app with this?
+This app is built using the following technologies:
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- Next.js 15
+- TypeScript 5.8.3
+- Tailwind CSS 4.0.15
+- chart.js 4.4.9
+- React Redux 9.2.0
+- Redux Toolkit 2.8.2
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+### Prerequisites 🛠️
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- [Git](http://git-scm.com/)
+- [Node.js](http://nodejs.org/) (v20.18.1 or higher)
+- [pnpm](https://pnpm.io/) (recommended) or npm
 
-## Sr. Frontend Developer Technical Assignment
+### Installation Steps
 
-### Assignment Overview
+You'll need to add secrets to an .env to use the db and for Clerk Auth. Let me know your email and I can share these secrets via the Vercel and Clerk apps.
 
-Please build a responsive, server-rendered front-end web application using the CoinCap API (https://docs.coincap.io/).
+Open your terminal and run:
 
-The goal is to demonstrate your ability to consume a public API, implement Server-Side Rendering (SSR), manage state effectively, and handle simulated real-time data using Server-Sent Events (SSE).
+```sh
+$ git clone git@github.com:westfoc/coincap-app.git
+$ cd coincap-app
+$ pnpm install
+$ pnpm run dev
+$ Navigate to `http://localhost:3000/` to view the app
+```
 
-## Requirements
+## Development
 
-### Technology Stack
-
-- [x] Framework: Next.js (with TypeScript)
-- [x] Styling: TailwindCSS
-- [x] State Management: Redux
-- [x] Server-side Rendering
-- [x] Public API Integration – use CoinCap API
-
-### Minimum Features
-
-- [x] Home Page that displays the top 20 cryptocurrencies by market cap.
-- [x] Coin Detail Page (/coin/[id]) that shows real-time price updates and metadata.
-- [x] A real-time price ticker or chart that updates every few seconds.
-- [x] You may simulate SSE using a custom API route or setInterval().
-
-## Responsive Design
-
-- [x] The application must be usable and visually coherent on both desktop and mobile devices.
-- [x] Deployment
-- [x] The application must be deployed and publicly accessible.
-
-## Bonus (Optional) Features
-
-- [ ] Filtering or sorting by price, volume, or change %
-- [ ] Dark mode toggle with persisted preference
-- [ ] Unit tests for at least one component using Jest or React Testing Library
-
-## Submission Guidelines
-
-### Please submit the following:
-
-- [ ] Link to the GitHub repository (public)
-- [ ] Link to the deployed application
-- [ ] A README file containing:
-- [ ] Setup instructions
-- [ ] Explanation of your architecture/approach
-- [ ] Any assumptions or trade-offs made
+View the deployed app here: `https://coincap-app-delta.vercel.app/`
